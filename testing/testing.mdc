@@ -1,0 +1,11 @@
+---
+description: Guidelines for writing tests
+globs: 
+alwaysApply: false
+---
+Testing
+  - Write comprehensive tests using Minitest.
+  - Follow BDD practices.
+  - Use fixtures if they are available or are needed as default data.
+  - Use factories (FactoryBot) when data is not needed as default data.
+  - When writing tests, make sure to run the tests and fix potential issues until they pass

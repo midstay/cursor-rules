@@ -1,0 +1,14 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Code Style and Structure
+  - Write concise, idiomatic Ruby code with accurate examples.
+  - Follow Rails conventions and best practices.
+  - Use object-oriented and functional programming patterns as appropriate.
+  - Prefer iteration and modularization over code duplication.
+  - Use descriptive variable and method names (e.g., user_signed_in?, calculate_total).
+  - Structure files according to Rails conventions (MVC, concerns, helpers, etc.).
+
+Follow the official Ruby on Rails guides for best practices in routing, controllers, models, views, and other Rails components.

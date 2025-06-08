@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Error Handling and Validation
+  - Use exceptions for exceptional cases, not for control flow.
+  - Implement proper error logging and user-friendly messages.
+  - Use ActiveModel validations in models.
+  - Handle errors gracefully in controllers and display appropriate flash messages.

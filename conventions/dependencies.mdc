@@ -1,0 +1,9 @@
+---
+description: Guidelines for use of dependencies like gems and packages
+globs: 
+alwaysApply: false
+---
+Dependency guidelines
+  - Dependencies like gems and javascript libraries can be used when appropriate
+  - If we only need a small part of a library and it's easy to implement, we implement it ourselves
+  - If the library contains logic that is complicated to build and maintain, we use the library

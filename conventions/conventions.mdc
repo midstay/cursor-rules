@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Key Conventions
+  - Follow RESTful routing conventions.
+  - Use concerns for shared behavior across models or controllers.
+  - Implement service objects for complex business logic.
+  - Use background jobs (e.g., Sidekiq) for time-consuming tasks.

@@ -1,0 +1,7 @@
+---
+description: Guidelines for commit messages
+globs: 
+alwaysApply: false
+---
+- Use conventional commits for commit messages
+- Keep messages short. Limit: 50 characters (hard limit: 72 max)

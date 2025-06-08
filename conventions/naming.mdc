@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Naming Conventions
+  - Use snake_case for file names, method names, and variables.
+  - Use CamelCase for class and module names.
+  - Follow Rails naming conventions for models, controllers, and views.

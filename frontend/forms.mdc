@@ -1,0 +1,14 @@
+---
+description: 
+globs: app/views/**/*
+alwaysApply: false
+---
+---
+description: Guidelines for implementing forms
+globs: 
+alwaysApply: false
+---
+
+Always prefer using Simple Form for forms, except in the AdminDashboard namespace where we always use the Administrate framework defaults.
+
+In general we us a model as the form resource, but if the form is complex e.g. with advanced validation behavior we use form objects that can replace the model instance as the form resource.

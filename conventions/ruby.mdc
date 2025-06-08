@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Syntax and Formatting
+  - Follow the Ruby Style Guide (https://rubystyle.guide/)
+  - Use Ruby's expressive syntax (e.g., unless, ||=, &.)
+  - Prefer single quotes for strings unless interpolation is needed.
+  - Use Ruby 3.x features when appropriate (e.g., pattern matching, endless methods).

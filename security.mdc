@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Security principles
+- Use strong parameters in controllers.
+- Protect against common web vulnerabilities (XSS, CSRF, SQL injection).

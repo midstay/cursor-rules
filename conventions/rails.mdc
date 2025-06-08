@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Ruby and Rails Usage
+  - Leverage Rails' built-in helpers and methods.
+  - Use ActiveRecord effectively for database operations.
