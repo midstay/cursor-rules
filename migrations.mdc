@@ -1,0 +1,99 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Data Migration Patterns
+
+## **Query Object Pattern for Migrations**
+- **Use query objects for migration logic** instead of putting complex logic directly in Rails migrations
+- **Structure**: `app/queries/migrations/[model_name]/[migration_purpose].rb`
+- **Base class**: All migration query objects must inherit from `BaseQueryObject`
+- **Method**: Implement a `call` method with the migration logic
+
+## **File Organization**
+- **Query objects**: `app/queries/migrations/[model_name]/[purpose].rb`
+- **Tests**: `test/queries/migrations/[model_name]/[purpose]_test.rb`
+- **Rails migrations**: Simple wrapper that calls the query object
+
+## **Implementation Examples**
+
+### Query Object Structure
+```ruby
+module Migrations
+  module ModelName
+    class MigrationPurpose < BaseQueryObject
+      def call
+        ActiveRecord::Base.transaction do
+          # Migration logic here
+        end
+        
+        Rails.logger.info "Migration completed"
+      end
+
+      private
+
+      def migration_specific_method
+        # Implementation
+      end
+    end
+  end
+end
+```
+
+### Rails Migration Structure
+```ruby
+class MigrationName < ActiveRecord::Migration[8.0]
+  def up
+    Migrations::ModelName::MigrationPurpose.call
+  end
+
+  def down
+    # Rollback logic if needed
+  end
+end
+```
+
+### Test Structure
+```ruby
+require 'test_helper'
+
+module Migrations
+  module ModelName
+    class MigrationPurposeTest < ActiveSupport::TestCase
+      def setup
+        @query = MigrationPurpose.new
+      end
+
+      test 'performs expected migration' do
+        # Test the query object directly
+        @query.call
+        # Assertions
+      end
+    end
+  end
+end
+```
+
+## **Best Practices**
+- **Transaction safety**: Wrap migration logic in `ActiveRecord::Base.transaction`
+- **Logging**: Include informative logging for migration progress
+- **Error handling**: Handle exceptions gracefully with proper error messages
+- **Idempotency**: Ensure migrations can be run multiple times safely
+- **Edge cases**: Test for nil values, missing associations, and data inconsistencies
+- **Performance**: Consider batch processing for large datasets
+- **Rollback**: Implement rollback logic in Rails migration `down` method when possible
+
+## **Testing Guidelines**
+- **Test the query object**, not the Rails migration directly
+- **Test all edge cases**: nil values, missing data, existing configurations
+- **Test idempotency**: Ensure running twice doesn't cause issues
+- **Use fixtures**: Create proper test data setup in `setup` method
+- **Validation skipping**: Use `save!(validate: false)` when creating test data that intentionally violates current validations
+
+## **Example Patterns**
+- **Configuration duplication**: `Migrations::ProposalRequests::MigrateDatesToEventConfiguration`
+- **Data normalization**: `Migrations::Descriptions::Objective`
+- **Association population**: `Migrations::Leads::PopulateContacts`
+- **Column migrations**: `Migrations::EstimationRequests::PopulateConfigurationAndFinancialData`
+
